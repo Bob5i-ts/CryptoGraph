@@ -1,0 +1,9 @@
+
+.smp-container,
+.main-container,
+.home-container {
+    min-height: 100vh;
+    margin: auto;
+    background-color: #eeeeee;
+    position: relative;
+}
