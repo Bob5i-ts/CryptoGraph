@@ -1,0 +1,12 @@
+.smp-container {
+    max-width: 1000px;
+}
+
+.smp-header {
+    background-color: #6096dd;
+    text-align: center;
+    padding: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+}
