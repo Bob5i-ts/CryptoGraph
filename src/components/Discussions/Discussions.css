@@ -1,0 +1,36 @@
+.new-post-btn.active {
+    background-color: rgb(125, 125, 218);
+}
+
+
+.post-card {
+    display: block;
+    background-color: #f4f4f4;
+    color: #3c3c3c;
+    width: 680px;
+    height: 160px;
+    box-shadow: 0 0 2px 0 rgba(35, 35, 35, 0.45);
+    margin: 10px;
+    text-decoration-line: none;
+    border-radius: 6px;
+}
+
+.post-div {
+    display: inline-block;
+}
+
+.post-div.d1 {
+    width: 135px;
+    height: 87%;
+    margin: 10px;
+    text-align: center;
+}
+
+.post-div.d2 {
+    width: 500px;
+    height: 125px;
+    vertical-align: top;
+    margin-left: 12px;
+    font-size: larger;
+}
+
