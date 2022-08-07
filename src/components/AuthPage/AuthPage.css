@@ -1,0 +1,57 @@
+.forms-container {
+    width: 480px;
+    margin: 20px auto;
+    background-color: rgb(234, 234, 234);
+    border: 1px solid rgb(134, 134, 134);
+    border-radius: 10px;
+}
+
+.login-tab,
+.reg-tab {
+    display: inline-block;
+    color: black;
+    background-color: rgb(219, 219, 219);
+    font-size: large;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 0;
+    width: 50%;
+}
+
+.login-tab {
+    border-top-left-radius: 10px;
+}
+.reg-tab {
+    border-top-right-radius: 10px;
+}
+
+.login-tab.active,
+.reg-tab.active {
+    color: rgb(36, 65, 153);
+    background-color: rgb(234, 234, 234);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 10px;
+    align-items: center;
+}
+
+.auth-form input {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    width: 98%;
+    font-size: 1.15em;
+}
+
+.auth-form label {
+    width: 80%;
+}
+
+.login-submit-btn,
+.reg-submit-btn {
+    width: 60%;
+    height: 30px;
+}

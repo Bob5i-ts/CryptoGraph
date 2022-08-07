@@ -1,0 +1,11 @@
+.home-container {
+    max-width: 1200px;
+}
+
+.tradingview-widget-container {
+    margin-top: 5px;
+}
+
+.tradingview-widget-container.events {
+    margin: 0 auto;
+}
