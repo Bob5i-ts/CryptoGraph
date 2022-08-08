@@ -11,26 +11,11 @@ function Markets() {
     useEffect(() => {
         const tickerConfig = {
         "symbols": [
-        {
-          "description": "Algorand",
-          "proName": "BINANCE:ALGOUSDT"
-        },
-        {
-          "description": "Cosmos",
-          "proName": "BINANCE:ATOMUSDT"
-        },
-        {
-          "description": "Ethereum",
-          "proName": "BINANCE:ETHUSDT"
-        },
-        {
-          "description": "Ripple",
-          "proName": "BINANCE:XRPUSDT"
-        },
-        {
-          "description": "Litecoin",
-          "proName": "BINANCE:LTCUSDT"
-        }
+            { "description": "Algorand", "proName": "BINANCE:ALGOUSDT" },
+            { "description": "Cosmos", "proName": "BINANCE:ATOMUSDT" },
+            { "description": "Litecoin", "proName": "BINANCE:LTCUSDT" },
+            { "description": "Solana", "proName": "BINANCE:SOLUSDT" },
+            { "description": "Polkadot", "proName": "BINANCE:DOTUSDT" },
         ],
         "colorTheme": "light",
         "isTransparent": false,
@@ -44,9 +29,11 @@ function Markets() {
         tickersRef.current.appendChild(script);
         const homeChartConfig = {
               "symbols": [
-                ["btc", "BINANCE:BTCUSDT|1D"],
-                ["eth", "BINANCE:ETHUSDT|1D"],
-                ["xrp", "BINANCE:XRPUSDT|1D"]
+                ["Bitcoin", "BINANCE:BTCUSDT|1D"],
+                ["Ethereum", "BINANCE:ETHUSDT|1D"],
+                ["Ripple", "BINANCE:XRPUSDT|1D"],
+                ["Dogecoin", "BINANCE:DOGEUSDT|1D"],
+                ["BinanceCoin", "BINANCE:BNBUSDT|1D"],
               ],
               "chartOnly": false,
               "width": "100%",
@@ -105,7 +92,7 @@ function Events() {
         "colorTheme": "light",
         "isTransparent": false,
         "displayMode": "regular",
-        "width": "650",
+        "width": "680",
         "height": "800",
         "locale": "en"
     }
