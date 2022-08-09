@@ -2,7 +2,8 @@ import { useUser } from 'reactfire';
 
 export function PublicWrapper({ children }) {
     const user = useUser();
-    if (!user.data) {
+
+    if (user.data === null) {
         return children;
     }
 
@@ -11,6 +12,7 @@ export function PublicWrapper({ children }) {
 
 export function PrivateWrapper({ children }) {
     const user = useUser();
+
     if (user.data) {
         return children;
     }
