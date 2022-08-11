@@ -31,3 +31,46 @@ export function AllPosts() {
         </>
     )
 }
+function Discussions() {
+    const db = useDatabase();
+    const postsRef = ref(db, 'posts');
+    const user = useUser().data
+    const [formActive, setFormActive] = useState(false);
+    const [search, setSearch] = useState();
+    const postText = useRef()
+    function sendPost() {
+        let postData = {
+            author: user.displayName,
+            uid: user.uid,
+            userImg: user.photoURL,
+            text: postText.current.value,
+            comments: 0,
+            time: Date.now()
+        }
+        push(postsRef, postData);
+    }
+
+    return (
+        <MainWrapper>
+            <MainToolbar>
+                <input type='search' className='search-input' placeholder='' value={search} onChange={setSearch} />
+                <button className={'new-post-btn' + (formActive ?' active':'')}
+                    onClick={() => formActive ? setFormActive(false) : setFormActive(true)}
+                > New post
+                </button>
+            </MainToolbar>
+            {formActive
+                ? <div className='new-post-form'>
+                    <textarea className='post-input' placeholder='Add new post'
+                        ref={postText} cols='50' rows='3'
+                    />
+                    <button className='post-send-btn' onClick={sendPost}>Send</button>
+                </div>
+                : null
+            }
+            <AllPosts />
+        </MainWrapper>
+    )
+}
+
+export default Discussions;
