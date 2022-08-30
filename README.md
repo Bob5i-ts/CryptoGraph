@@ -1,9 +1,13 @@
 ### CryptoGraph
-React.js application for tracking cryptocurrancy prices and assets.
+Application for tracking cryptocurrency prices and assets.
 
-It uses Firebase services and the [Reactfire](https://github.com/FirebaseExtended/reactfire) library.
+Most features are accessible for authenticated users only.
 
-All features are accessible for authenticated users only.
+### Technologies
+- React.js and React Router v5
+- Firebase SDK and services.
+- [ReactFire](https://github.com/FirebaseExtended/reactfire) library.
+- [TradingView](https://www.tradingview.com) widgets.
 
 ### How to start
 Type `npm install` in terminal, then `npm start` to start the dev server.
