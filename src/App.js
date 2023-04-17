@@ -7,6 +7,7 @@ import { PrivateWrapper, PublicWrapper } from './components/AuthWrappers';
 import HomePage from './components/HomePage/HomePage';
 import AuthPage from './components/AuthPage/AuthPage';
 import Prices from './components/Prices/Prices';
+import FindATM from './components/FindATM/FindATM';
 import './css/App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <PrivateWrapper>
               <Switch>
                 <Route path='/prices/:exchange/:coin' component={Prices} />
+                <Route path='/find-atm' component={FindATM} />
               </Switch>
           </PrivateWrapper>
         </BrowserRouter>
