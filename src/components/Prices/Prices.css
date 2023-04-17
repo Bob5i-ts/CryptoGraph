@@ -1,0 +1,25 @@
+.exchanges-nav {
+    display: inline-block;
+    vertical-align: top;
+    /*! text-align: center; */
+}
+
+.exchange-link * {
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.exchange-link {
+    display: block;
+    padding: 3px;
+    background-color: #d7d7d7;
+    margin-bottom: 3px;
+    color: black;
+    text-decoration-line: none;
+}
+
+#tradingview_chart {
+    max-height: 600px;
+    min-height: 300px;
+    height: 90vh;
+}

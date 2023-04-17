@@ -6,6 +6,7 @@ import { Switch, Route, BrowserRouter, Redirect} from 'react-router-dom';
 import { PrivateWrapper, PublicWrapper } from './components/AuthWrappers';
 import HomePage from './components/HomePage/HomePage';
 import AuthPage from './components/AuthPage/AuthPage';
+import Prices from './components/Prices/Prices';
 import './css/App.css';
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
             </Switch>
           </PublicWrapper>
           <PrivateWrapper>
+              <Switch>
+                <Route path='/prices/:exchange/:coin' component={Prices} />
+              </Switch>
           </PrivateWrapper>
         </BrowserRouter>
         </StorageProvider>
