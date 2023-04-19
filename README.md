@@ -8,6 +8,7 @@ Most features are accessible for authenticated users only.
 - Firebase SDK and services.
 - [ReactFire](https://github.com/FirebaseExtended/reactfire) library.
 - [TradingView](https://www.tradingview.com) widgets.
+- Google Maps API
 
 ### How to start
 Type `npm install` in terminal, then `npm start` to start the dev server.
