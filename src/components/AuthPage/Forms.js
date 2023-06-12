@@ -3,6 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useAuth } from 'reactfire';
 
 export function LoginForm({history}) {
+function formatErr(err) {
+    let msg = err.message.slice(22,-2).replaceAll('-',' ');
+    msg = msg[0].toUpperCase() + msg.slice(1);
+    return msg;
+}
+
     useEffect(() => {
         document.title = 'Log in to CryptoGraph';
     });
