@@ -20,3 +20,12 @@ export function MainToolbar(props) {
         </div>
     );
 }
+
+export function Spinner() {
+    return (
+        <div className="spinner"
+            style={{ width: '30px', height: '30px' }}
+        >
+        </div>
+    )
+}

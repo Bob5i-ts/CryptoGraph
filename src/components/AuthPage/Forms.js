@@ -1,6 +1,7 @@
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useEffect, useRef, useState } from 'react';
 import { useAuth } from 'reactfire';
+import { Spinner } from '../MainWrapper/Elements';
 
 function formatErr(err) {
     let msg = err.message.slice(22,-2).replaceAll('-',' ');
@@ -36,6 +37,7 @@ export function LoginForm({history, setErrors}) {
                 <input type="password" ref={pass} />
             </label>
             <button type="submit" className="login-submit-btn" disabled={loading}>Log in</button>
+            { loading && <Spinner/> }
         </form>
     );
 }
@@ -87,6 +89,7 @@ export function SignupForm({history, setErrors}) {
                 <input type="password" value={rePass} onChange={ev => setRePass(ev.target.value)} />
             </label>
             <button type="submit" className="reg-submit-btn" disabled={loading}>Register</button>
+            { loading && <Spinner/> }
         </form>
     );
 }
