@@ -1,22 +1,30 @@
+import { useState } from 'react';
 import { NavLink, Route } from "react-router-dom";
 import SimpleWrapper from "../SimpleWrapper/SimpleWrapper";
 import { LoginForm, SignupForm } from './Forms';
 import './AuthPage.css';
 
 function AuthPage() {
+    const [errors, setErrors] = useState();
+    function hideErrors() {errors && setErrors(null);}
     return (
         <SimpleWrapper>
-            <main>
-                <div className="forms-container">
-                    <nav className="auth-forms-nav">
-                        <NavLink to="/auth/login" className="login-tab">Login</NavLink>
-                        <NavLink to="/auth/register" className="reg-tab">Register</NavLink>
-                    </nav>
-                
-                    <Route path="/auth/login" component={LoginForm}/>
-                    <Route path="/auth/register" component={SignupForm}/>
+            <div className="forms-container">
+                <nav className="auth-forms-nav">
+                    <NavLink to="/auth/login" className="login-tab" replace onClick={hideErrors}>Log in</NavLink>
+                    <NavLink to="/auth/register" className="reg-tab" replace onClick={hideErrors}>Register</NavLink>
+                </nav>
+
+                <Route path="/auth/login" children={<LoginForm setErrors={setErrors}/>}/>
+                <Route path="/auth/register" children={<SignupForm setErrors={setErrors}/>}/>
+            </div>
+            {errors &&
+                <div className="err-container">
+                    <ul>
+                        {errors.map((er, idx) => <li key={idx}>{er}</li>)}
+                    </ul>
                 </div>
-            </main>
+            }
         </SimpleWrapper>
     );
 }
