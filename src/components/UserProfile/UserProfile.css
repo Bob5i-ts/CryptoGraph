@@ -1,0 +1,28 @@
+.profile-img-div,
+.user-data-div {
+    display: inline-block;
+    margin: 50px 0 0 80px;
+    width: 380px;
+    height: 380px;
+    vertical-align: top;
+    text-align: center;
+}
+/* .user-data-div btn {} */
+
+.profile-img-wrap {
+    height: 256px;
+    width: 256px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    position: relative;
+    background-color: whitesmoke;
+    overflow: hidden;
+    /* outline: #11201114 solid medium; */
+}
+
+.profile-img-wrap img {
+    max-width: 260px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
