@@ -9,8 +9,8 @@ function FindATM() {
     const atmRadioRef = useRef();
     const btcAtmRadioRef = useRef();
     useEffect(() => {
-        console.log(atmRadioRef.current)
-    })
+        document.title = 'Find ATM | CryptoGraph';
+    });
     function searchAtms() {
         const atmType = atmRadioRef.current.checked
             ? atmRadioRef.current.value

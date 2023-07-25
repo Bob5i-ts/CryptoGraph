@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { ref, uploadBytesResumable } from 'firebase/storage';
 import { useAuth, useStorage } from 'reactfire';
@@ -8,6 +9,7 @@ import './UserProfile.css';
 function UserProfile() {
     const auth = useAuth();
     const storage = useStorage();
+    useEffect(() => document.title = 'User profile | CryptoGraph');
 
     function uploadImage(ev) {
         console.log(ev.target.files);
@@ -20,7 +22,6 @@ function UserProfile() {
         <SimpleWrapper>
             <div className='profile-img-div'>
                 <div className='profile-img-wrap'>
-                    {/* <img src="/img/tweety.png" alt="user" /> */}
                     <GetImage uid={auth.currentUser.uid}/>
                 </div>
                 <h5>Change profile image</h5>

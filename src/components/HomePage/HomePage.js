@@ -9,6 +9,7 @@ function Markets() {
     const tickersRef = useRef();
     const homeChartRef = useRef();
     useEffect(() => {
+        document.title = 'Markets | CryptoGraph';
         const tickerConfig = {
         "symbols": [
             { "description": "Algorand", "proName": "BINANCE:ALGOUSDT" },
@@ -98,6 +99,7 @@ function Events() {
     }
     const eventsRef = useRef()
     useEffect(() => {
+        document.title = 'Event highlights | CryptoGraph';
         const script = document.createElement('script');
         script.src = "https://s3.tradingview.com/external-embedding/embed-widget-timeline.js";
         script.async = true;
