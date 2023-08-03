@@ -1,7 +1,20 @@
+:root {
+    --main-fg-color: #6096dd;
+    --main-fg-dark-color: #1a2d46;
+    --login-btn-color: #4a794a;
+    --reg-btn-color: #6867ac;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  background-color: lightgray;
-  font-family: 'Noto Sans', 'Roboto', sans-serif;
-  /* -webkit-font-smoothing: antialiased; */
-  /* -moz-osx-font-smoothing: grayscale; */
+    margin: 0;
+    background-color: lightgray;
+    font-family: 'Noto Sans', 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration-line: none;
 }
