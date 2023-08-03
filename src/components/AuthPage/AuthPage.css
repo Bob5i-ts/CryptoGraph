@@ -1,6 +1,6 @@
 .forms-container {
     width: 480px;
-    margin: 20px auto;
+    margin: 25px auto 0;
     background-color: rgb(234, 234, 234);
     border: 1px solid rgb(134, 134, 134);
     border-radius: 10px;
@@ -10,21 +10,18 @@
 .reg-tab {
     display: inline-block;
     color: black;
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(218, 218, 218);
     font-size: large;
-    text-decoration: none;
     text-align: center;
     padding: 10px 0;
     width: 50%;
 }
-
 .login-tab {
     border-top-left-radius: 10px;
 }
 .reg-tab {
     border-top-right-radius: 10px;
 }
-
 .login-tab.active,
 .reg-tab.active {
     color: rgb(36, 65, 153);
@@ -37,15 +34,14 @@
     padding: 18px 10px;
     align-items: center;
 }
-
 .auth-form input {
     display: block;
-    margin-top: 5px;
+    margin-top: 3px;
     margin-bottom: 25px;
-    width: 98%;
+    padding: 3px 5px;
+    width: 100%;
     font-size: 1.15em;
 }
-
 .auth-form label {
     width: 80%;
 }
@@ -53,5 +49,36 @@
 .login-submit-btn,
 .reg-submit-btn {
     width: 60%;
-    height: 30px;
+    height: 36px;
+    color: #f1eded;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    border-style: none;
+    opacity: 0.93;
+}
+.reg-submit-btn {
+    background-color: var(--reg-btn-color);
+}
+.login-submit-btn {
+    background-color: var(--login-btn-color);
+}
+.login-submit-btn:hover,
+.reg-submit-btn:hover {
+    opacity: initial;
+}
+.login-submit-btn:disabled,
+.reg-submit-btn:disabled {
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.err-container {
+    width: 37%;
+    font-size: 14px;
+    color: #1a1919;
+    background-color: lightcoral;
+    margin: 10px auto 0;
+    padding: 1px;
+    border-radius: 5px;
 }
