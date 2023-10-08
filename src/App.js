@@ -8,6 +8,7 @@ import HomePage from './components/HomePage/HomePage';
 import AuthPage from './components/AuthPage/AuthPage';
 import Prices from './components/Prices/Prices';
 import FindATM from './components/FindATM/FindATM';
+import UserProfile from './components/UserProfile/UserProfile';
 import './css/App.css';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Switch>
                 <Route path='/prices/:exchange/:coin' component={Prices} />
                 <Route path='/find-atm' component={FindATM} />
+                <Route path='/profile' component={UserProfile} />
               </Switch>
           </PrivateWrapper>
         </BrowserRouter>
