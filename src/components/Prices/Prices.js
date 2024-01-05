@@ -45,6 +45,10 @@ function Prices({ match }) {
             </MainToolbar>
             <aside className='exchanges-nav'>
                 <h3>Exchange</h3>
+                <NavLink to={`/prices/binance/${coin}`} className='exchange-link'>
+                    <img src='/img/binance.png' alt='' />
+                    Binance
+                </NavLink>
                 <NavLink to={`/prices/coinbase/${coin}`} className='exchange-link'>
                     <img src='/img/coinbase.png' alt='' />
                     Coinbase
@@ -61,12 +65,8 @@ function Prices({ match }) {
                     <img src='/img/huobi.png' alt='' />
                     Huobi
                 </NavLink>
-                <NavLink to={`/prices/binance/${coin}`} className='exchange-link'>
-                    <img src='/img/binance.png' alt='' />
-                    Binance
-                </NavLink>
             </aside>
-            <div className="tradingview-widget-container" ref={chartRef}>
+            <div className="tradingview-widget-container main-chart" ref={chartRef}>
                 <div id="tradingview_chart"></div>
                 <div className="tradingview-widget-copyright">
                     <a href="https://www.tradingview.com" rel="noreferrer" target="_blank">

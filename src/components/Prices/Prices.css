@@ -2,24 +2,31 @@
     display: inline-block;
     vertical-align: top;
     /*! text-align: center; */
+    width: 128px;
 }
 
 .exchange-link * {
     vertical-align: middle;
     margin-right: 3px;
 }
-
 .exchange-link {
     display: block;
     padding: 3px;
-    background-color: #d7d7d7;
-    margin-bottom: 3px;
     color: black;
-    text-decoration-line: none;
+    background-color: #d7d7d7;
+    margin-bottom: 5px;
+}
+.exchange-link.active {
+    color: #1f1528;
+    background-color: #d8bef2;
 }
 
+.main-chart {
+    display: inline-block;
+    width: calc(100% - 128px);
+}
 #tradingview_chart {
-    max-height: 600px;
+    max-height: 680px;
     min-height: 300px;
     height: 90vh;
 }
