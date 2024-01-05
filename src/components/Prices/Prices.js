@@ -27,7 +27,7 @@ function Prices({ match }) {
         const chart = `new TradingView.widget(${JSON.stringify(chartConfig)});`
         script.replaceChildren(chart);
         chartRef.current.appendChild(script);
-        return document.body.lastChild.remove();
+        return () => {document.body.lastChild.remove(); sessionStorage.setItem('cgLastChart', match.url)}
     }, [exchange, coin])
     return (
         <MainWrapper>
