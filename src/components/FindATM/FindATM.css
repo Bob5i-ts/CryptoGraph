@@ -1,5 +1,13 @@
 .map-container {
     width: 100%;
-    height: 90vh;
+    height: 80vh;
     border: 0;
+}
+
+#atm-input {
+    width: 230px;
+}
+
+#btc-atm-radio {
+    margin-left: 50px;
 }
