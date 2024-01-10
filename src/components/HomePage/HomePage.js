@@ -63,6 +63,7 @@ function Markets() {
         const newChart = `new TradingView.MediumWidget(${JSON.stringify(homeChartConfig)});`
         script2.replaceChildren(newChart);
         homeChartRef.current.appendChild(script2);
+        return () => document.body.lastChild.remove();
     }, [])
 
     return (
