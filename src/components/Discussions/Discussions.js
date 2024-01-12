@@ -6,6 +6,14 @@ import MainWrapper from '../MainWrapper/MainWrapper';
 import { MainToolbar } from '../MainWrapper/Elements';
 import './Discussions.css';
 
+export function GetImage({ uid }) {
+    const storage = useStorage();
+    const [url, setUrl] = useState('/img/default.png')
+    if (uid) getDownloadURL(storageRef(storage, `userPics/${uid}.png`))
+        .then(url => setUrl(url))
+        .catch(null);
+    return <img src={url} alt='user' />
+}
 export function AllPosts() {
     const db = useDatabase();
     const postsRef = ref(db, 'posts');
