@@ -2,8 +2,8 @@ import { ref, push } from '@firebase/database';
 import { useDatabase, useDatabaseListData, useUser } from 'reactfire';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { MainToolbar } from '../MainWrapper/Common';
 import MainWrapper from '../MainWrapper/MainWrapper';
-import { MainToolbar } from '../MainWrapper/Elements';
 import './Discussions.css';
 
 export function GetImage({ uid }) {

@@ -1,4 +1,4 @@
-import { footer, logo } from '../MainWrapper/Elements';
+import { footer, logo } from '../MainWrapper/Common';
 import './SimpleWrapper.css';
 
 function SimpleWrapper(props) {

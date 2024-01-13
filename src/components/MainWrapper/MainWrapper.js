@@ -1,4 +1,4 @@
-import { footer } from './Elements';
+import { footer } from './Common';
 import { UserHeader } from './Headers';
 import './MainWrapper.css';
 

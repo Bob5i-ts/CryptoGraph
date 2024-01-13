@@ -23,9 +23,9 @@ export function MainToolbar(props) {
 
 export function Spinner() {
     return (
-        <div className="spinner"
+        <span className="spinner"
             style={{ width: '30px', height: '30px' }}
         >
-        </div>
+        </span>
     )
 }

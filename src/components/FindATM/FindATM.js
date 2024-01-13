@@ -1,5 +1,5 @@
 import MainWrapper from '../MainWrapper/MainWrapper';
-import { MainToolbar } from '../MainWrapper/Elements';
+import { MainToolbar } from '../MainWrapper/Common';
 import { useEffect, useRef, useState } from 'react';
 import './FindATM.css';
 
