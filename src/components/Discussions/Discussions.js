@@ -1,23 +1,24 @@
-import { ref, push } from '@firebase/database';
-import { useDatabase, useDatabaseListData, useUser } from 'reactfire';
+import { ref, push } from 'firebase/database';
+import { ref as storageRef, getDownloadURL } from 'firebase/storage';
+import { useDatabase, useDatabaseListData, useStorage, useUser } from 'reactfire';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MainToolbar } from '../MainWrapper/Common';
 import MainWrapper from '../MainWrapper/MainWrapper';
 import './Discussions.css';
 
-export function GetImage({ uid }) {
+export function ProfileImage({ uid }) {
     const storage = useStorage();
     const [url, setUrl] = useState('/img/default.png')
     if (uid) getDownloadURL(storageRef(storage, `userPics/${uid}.png`))
-        .then(url => setUrl(url))
+        .then(imgURL => setUrl(imgURL))
         .catch(null);
     return <img src={url} alt='user' />
 }
-export function AllPosts() {
+export function Posts() {
     const db = useDatabase();
     const postsRef = ref(db, 'posts');
-    const { status, data } = useDatabaseListData(postsRef, { idField: 'id'})
+    const { status, data } = useDatabaseListData(postsRef, { idField: 'id'});
     if (status === 'loading') {
         return <h3>Fetching posts...</h3>
     } else if (!data) {
@@ -25,20 +26,23 @@ export function AllPosts() {
     }
     return (
         <>
-        {data.map(post => (
-                <Link key={post.id} to={'/post/' + post.id} className='post-card'>
+            {data.map(post => (
+                <Link to={'/post/' + post.id} className='post-card' key={post.id}>
                     <div className='post-div d1'>
-                        <img src={post.userImg} alt='' />
+                        <div className='card-img-wrap'>
+                            <ProfileImage uid={post.uid}/>
+                        </div>
                         <h5>{post.author}</h5>
                     </div>
                     <div className='post-div d2'>
                         <p>{post.text}</p>
                     </div>
                 </Link>
-        ))}
+            ))}
         </>
     )
 }
+
 function Discussions() {
     const db = useDatabase();
     const postsRef = ref(db, 'posts');
@@ -76,7 +80,7 @@ function Discussions() {
                 </div>
                 : null
             }
-            <AllPosts />
+            <Route path='/community' component={Posts} />
         </MainWrapper>
     )
 }

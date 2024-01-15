@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Route } from 'react-router-dom';
 import { GuestHeader } from '../MainWrapper/Headers';
-import { footer } from '../MainWrapper/Elements';
-import { AllPosts } from '../Discussions/Discussions';
+import { footer } from '../MainWrapper/Common';
+import { Posts } from '../Discussions/Discussions';
 import './HomePage.css';
 
 function Markets() {
@@ -125,7 +125,7 @@ function HomePage() {
             <GuestHeader />
                 <Route path="/home" exact component={Markets} />
                 <Route path="/home/events" component={Events} />
-                <Route path="/home/forum" component={AllPosts} />
+                <Route path="/home/forum" exact component={Posts} />
             {footer}
         </div>
     )

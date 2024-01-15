@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth';
 import { ref, uploadBytesResumable } from 'firebase/storage';
 import { useAuth, useStorage } from 'reactfire';
 import SimpleWrapper from '../SimpleWrapper/SimpleWrapper';
-import { GetImage } from '../Discussions/Discussions';
+import { ProfileImage } from '../Discussions/Discussions';
 import './UserProfile.css';
 
 function UserProfile() {
@@ -22,7 +22,7 @@ function UserProfile() {
         <SimpleWrapper>
             <div className='profile-img-div'>
                 <div className='profile-img-wrap'>
-                    <GetImage uid={auth.currentUser.uid}/>
+                    <ProfileImage uid={auth.currentUser.uid}/>
                 </div>
                 <h5>Change profile image</h5>
                 <input type="file" accept='image/png' onChange={uploadImage} />
