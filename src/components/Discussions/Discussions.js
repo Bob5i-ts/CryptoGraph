@@ -3,18 +3,10 @@ import { ref as storageRef, getDownloadURL } from 'firebase/storage';
 import { useDatabase, useDatabaseListData, useStorage, useUser } from 'reactfire';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MainToolbar } from '../MainWrapper/Common';
+import { MainToolbar, ProfileImage } from '../MainWrapper/Common';
 import MainWrapper from '../MainWrapper/MainWrapper';
 import './Discussions.css';
 
-export function ProfileImage({ uid }) {
-    const storage = useStorage();
-    const [url, setUrl] = useState('/img/default.png')
-    if (uid) getDownloadURL(storageRef(storage, `userPics/${uid}.png`))
-        .then(imgURL => setUrl(imgURL))
-        .catch(null);
-    return <img src={url} alt='user' />
-}
 export function Posts() {
     const db = useDatabase();
     const postsRef = ref(db, 'posts');

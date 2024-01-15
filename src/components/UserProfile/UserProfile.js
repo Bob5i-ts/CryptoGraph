@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth';
 import { ref, uploadBytesResumable } from 'firebase/storage';
 import { useAuth, useStorage } from 'reactfire';
 import SimpleWrapper from '../SimpleWrapper/SimpleWrapper';
-import { ProfileImage } from '../Discussions/Discussions';
+import { ProfileImage } from '../MainWrapper/Common';
 import './UserProfile.css';
 
 function UserProfile() {

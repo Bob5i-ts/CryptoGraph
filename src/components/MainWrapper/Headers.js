@@ -1,8 +1,7 @@
 import { signOut } from 'firebase/auth';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useAuth } from 'reactfire';
-import { logo } from './Common';
-import { ProfileImage } from '../Discussions/Discussions';
+import { logo, ProfileImage } from './Common';
 
 export function GuestHeader() {
     return (

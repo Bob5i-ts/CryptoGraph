@@ -1,4 +1,7 @@
+import { getDownloadURL, ref } from 'firebase/storage';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useStorage } from 'reactfire';
 
 export const logo = (
     <Link to="/" className="logo">
@@ -29,3 +32,16 @@ export function Spinner() {
         </span>
     )
 }
+
+export function ProfileImage({ uid }) {
+    const storage = useStorage();
+
+    const [url, setUrl] = useState('/img/default.png');
+
+    if (uid) getDownloadURL(ref(storage, `userPics/${uid}.png`))
+        .then(imgURL => setUrl(imgURL))
+        .catch(null);
+
+    return <img src={url} alt='user' />;
+}
+
