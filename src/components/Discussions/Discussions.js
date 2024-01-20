@@ -22,7 +22,7 @@ export function Posts() {
                 <Link to={'/post/' + post.id} className='post-card' key={post.id}>
                     <div className='post-div d1'>
                         <div className='card-img-wrap'>
-                            <ProfileImage uid={post.uid}/>
+                            <ProfileImage storage={storage} uid={post.uid}/>
                         </div>
                         <h5>{post.author}</h5>
                     </div>

@@ -22,7 +22,7 @@ function UserProfile() {
         <SimpleWrapper>
             <div className='profile-img-div'>
                 <div className='profile-img-wrap'>
-                    <ProfileImage uid={auth.currentUser.uid}/>
+                    <ProfileImage storage={storage} uid={auth.currentUser.uid}/>
                 </div>
                 <h5>Change profile image</h5>
                 <input type="file" accept='image/png' onChange={uploadImage} />
