@@ -19,6 +19,13 @@ export default function PostDetails() {
     if (status === 'loading') return null;
     else if (!post) return <h3>Post not found</h3>
 
+    function deletePost() {
+            update(ref(db), {[`posts/${postID}`]: null})
+    }
+    function cancelEdit() {
+        if (postInput != post.text) setPostInput(post.text);
+        setEdit(false);
+    }
     return (
         <div className='post-modal-bg'>
             <div className='post-modal-body'>
