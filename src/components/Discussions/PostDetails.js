@@ -19,8 +19,16 @@ export default function PostDetails() {
     if (status === 'loading') return null;
     else if (!post) return <h3>Post not found</h3>
 
+    function updatePost() {
+        if (!postInput || postInput == post.text) return;
+        update(postRef, {
+            text: postInput,
+            editTime: Date.now()
+        }).then(() => setEdit(false))
+            .catch(err => alert(err));
+    }
     function deletePost() {
-            update(ref(db), {[`posts/${postID}`]: null})
+        update(ref(db), { [`posts/${postID}`]: null });
     }
     function cancelEdit() {
         if (postInput != post.text) setPostInput(post.text);
