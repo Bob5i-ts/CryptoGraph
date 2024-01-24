@@ -42,18 +42,16 @@ function Discussions() {
     const [formActive, setFormActive] = useState(false);
     const [search, setSearch] = useState();
     const postText = useRef()
-    function sendPost() {
-        let postData = {
+    function addPost() {
+        if (!postText.current.value) return;
+        push(postsRef, {
             author: user.displayName,
             uid: user.uid,
-            userImg: user.photoURL,
             text: postText.current.value,
             comments: 0,
             time: Date.now()
-        }
-        push(postsRef, postData);
+        });
     }
-
     return (
         <MainWrapper>
             <MainToolbar>
@@ -63,14 +61,13 @@ function Discussions() {
                 > New post
                 </button>
             </MainToolbar>
-            {formActive
-                ? <div className='new-post-form'>
+            {formActive &&
+                <div className='new-post-form'>
                     <textarea className='post-input' placeholder='Add new post'
                         ref={postText} cols='50' rows='3'
                     />
-                    <button className='post-send-btn' onClick={sendPost}>Send</button>
+                    <button className='post-send-btn' onClick={addPost}>Send</button>
                 </div>
-                : null
             }
             <Route path='/community' component={Posts} />
         </MainWrapper>
