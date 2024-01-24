@@ -4,6 +4,35 @@ import { useRouteMatch } from 'react-router-dom';
 import { useDatabase, useDatabaseListData, useDatabaseObjectData, useStorage, useUser } from 'reactfire';
 import { ProfileImage } from '../MainWrapper/Common';
 
+function Comments ({ db, storage, postID, user }) {
+    const commInputRef = useRef();
+    const commsRef = ref(db, 'comments/' + postID);
+    const { status, data: comms } = useDatabaseListData(commsRef, { idField: 'id' });
+    if (status === 'loading') return null;
+    else if (!comms) return <h3>No comments</h3>
+
+    return (
+        <>
+            {user &&
+                <div>
+                    <textarea className='comment-input' ref={commInputRef} placeholder='New comment' cols='50' rows='2' />
+                </div>
+            }
+            {comms.length > 0 && comms.map(comm => (
+                <article className='comment' key={comm.id}>
+                    <div className='comm-img-wrap'>
+                        <ProfileImage storage={storage} uid={comm.uid} />
+                    </div>
+                    <h5>{comm.author}</h5>
+                    <div className='comm-text'>{comm.text}</div>
+                    {user.uid === comm.uid &&
+                    }
+                </article>
+            ))}
+        </>
+    );
+}
+
 export default function PostDetails() {
     const db = useDatabase();
     const storage = useStorage();
@@ -39,7 +68,7 @@ export default function PostDetails() {
             <div className='post-modal-body'>
                 <div>
                     <div className='post-img-wrap'>
-                        <ProfileImage storage={storage} uid={post.uid}/>
+                        <ProfileImage storage={storage} uid={post.uid} />
                     </div>
                     <h4>{post.author}</h4>
                     <textarea value={postInput || post.text} disabled={!isEdit}
@@ -59,7 +88,8 @@ export default function PostDetails() {
                         }
                     </div>
                 }
+                <Comments db={db} storage={storage} postID={postID} user={user} />
             </div>
         </div>
-    )
+    );
 }
