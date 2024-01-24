@@ -11,11 +11,30 @@ function Comments ({ db, storage, postID, user }) {
     if (status === 'loading') return null;
     else if (!comms) return <h3>No comments</h3>
 
+    function addComment() {
+        const newCommID = push(commsRef).key
+        update(ref(db), {
+            ['posts/' + postID + '/comments']: increment(1),
+            ['comments/' + postID + '/' + newCommID]: {
+                author: user.displayName,
+                uid: user.uid,
+                text: commInputRef.current.value,
+                time: Date.now()
+            }
+        });
+    }
+    function deleteComment(commID) {
+        update(ref(db), {
+            ['posts/' + postID + '/comments']: increment(-1),
+            ['comments/' + postID + '/' + commID]: null
+        });
+    }
     return (
         <>
             {user &&
                 <div>
                     <textarea className='comment-input' ref={commInputRef} placeholder='New comment' cols='50' rows='2' />
+                    <button className='comm-add-btn' onClick={addComment}>Submit</button>
                 </div>
             }
             {comms.length > 0 && comms.map(comm => (
@@ -26,6 +45,7 @@ function Comments ({ db, storage, postID, user }) {
                     <h5>{comm.author}</h5>
                     <div className='comm-text'>{comm.text}</div>
                     {user.uid === comm.uid &&
+                        <button className='comm-del-btn' onClick={deleteComment.bind(this, comm.id)}>Delete</button>
                     }
                 </article>
             ))}
