@@ -1,13 +1,14 @@
 import { ref, push } from 'firebase/database';
-import { ref as storageRef, getDownloadURL } from 'firebase/storage';
-import { useDatabase, useDatabaseListData, useStorage, useUser } from 'reactfire';
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, useRouteMatch } from 'react-router-dom';
+import { useDatabase, useDatabaseListData, useStorage, useUser } from 'reactfire';
 import { MainToolbar, ProfileImage } from '../MainWrapper/Common';
 import MainWrapper from '../MainWrapper/MainWrapper';
+import PostDetails from './PostDetails';
 import './Discussions.css';
 
 export function Posts() {
+    const storage = useStorage();
     const db = useDatabase();
     const postsRef = ref(db, 'posts');
     const { status, data } = useDatabaseListData(postsRef, { idField: 'id'});
@@ -70,6 +71,7 @@ function Discussions() {
                 </div>
             }
             <Route path='/community' component={Posts} />
+            <Route path='/community/post/:id' component={PostDetails} />
         </MainWrapper>
     )
 }

@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { GuestHeader } from '../MainWrapper/Headers';
 import { footer } from '../MainWrapper/Common';
 import { Posts } from '../Discussions/Discussions';
+import PostDetails from '../Discussions/PostDetails';
 import './HomePage.css';
 
 function Markets() {
@@ -125,7 +126,8 @@ function HomePage() {
             <GuestHeader />
                 <Route path="/home" exact component={Markets} />
                 <Route path="/home/events" component={Events} />
-                <Route path="/home/forum" exact component={Posts} />
+                <Route path="/home/forum" component={Posts} />
+                <Route path="/home/forum/post/:id" component={PostDetails} />
             {footer}
         </div>
     )
