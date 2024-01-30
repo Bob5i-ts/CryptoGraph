@@ -7,7 +7,9 @@ import { PrivateWrapper, PublicWrapper } from './components/AuthWrappers';
 import HomePage from './components/HomePage/HomePage';
 import AuthPage from './components/AuthPage/AuthPage';
 import Prices from './components/Prices/Prices';
+import News from './components/News/News';
 import FindATM from './components/FindATM/FindATM';
+import Discussions from './components/Discussions/Discussions';
 import UserProfile from './components/UserProfile/UserProfile';
 import './css/App.css';
 
@@ -21,22 +23,23 @@ function App() {
     <AuthProvider sdk={auth}>
       <DatabaseProvider sdk={db}>
         <StorageProvider sdk={storage}>
-        <BrowserRouter>
-          <PublicWrapper>
-            <Switch>
-              <Route path='/home' component={HomePage} />
-              <Route path='/auth' component={AuthPage} />
-              <Route children={<Redirect to='/home'/>} />
-            </Switch>
-          </PublicWrapper>
-          <PrivateWrapper>
+          <BrowserRouter>
+            <PublicWrapper>
+              <Switch>
+                <Route path='/home' component={HomePage} />
+                <Route path='/auth' component={AuthPage} />
+              </Switch>
+            </PublicWrapper>
+            <PrivateWrapper>
               <Switch>
                 <Route path='/prices/:exchange/:coin' component={Prices} />
+                <Route path='/news' component={News} />
                 <Route path='/find-atm' component={FindATM} />
+                <Route path='/community' component={Discussions} />
                 <Route path='/profile' component={UserProfile} />
               </Switch>
-          </PrivateWrapper>
-        </BrowserRouter>
+            </PrivateWrapper>
+          </BrowserRouter>
         </StorageProvider>
       </DatabaseProvider>
     </AuthProvider>
